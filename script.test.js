@@ -1,4 +1,4 @@
-const tess = require("./script");
+const tess = require("./scriptss");
 
 describe("computerChoice", function () {
   test("getComputerChoice returns valid options", () => {
