@@ -1,25 +1,52 @@
 // Select the button
-const humanChoosebutton = document.getElementById("humanChooseButton");
+const humanChooseButton = document.getElementById("humanChooseButton");
+
+// Choices map
+const choicesMap = {
+  r: "rock",
+  p: "paper",
+  s: "scissors",
+};
+
+// Function to get computer choice
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  const randomNumber = Math.random();
+  console.log(randomNumber);
+
+  const index = Math.floor(randomNumber * choices.length);
+  console.log(index);
+
+  return {
+    choice: choices[index],
+    value: randomNumber,
+  };
+}
 
 // Add click event
-humanChoosebutton.addEventListener("click", function () {
-  let userInput = prompt(`type (p,r,s)`);
+humanChooseButton.addEventListener("click", function () {
+  let userInput = prompt("type (r, p, s)");
 
-  if (userInput === null || userInput === "") {
-    console.log(`You didn't enter anything.`);
-  } else if (userInput.toLowerCase() === "r") {
-    console.log(`You choose rock`);
-    const randomNumber = Math.random();
-    if (randomNumber < 1 / 3) {
-      console.log(`computer choose rock and the value is ${randomNumber}`);
-    } else if (randomNumber < 2 / 3) {
-      console.log(`computer choose paper and the value is ${randomNumber}`);
-    } else {
-      console.log(`computer choose scissors and the value is ${randomNumber}`);
-    }
-  } else if (userInput.toLowerCase() === "p") {
-    console.log(`You choose paper`);
-  } else {
-    console.log(`type r,p,s`);
+  if (!userInput) {
+    console.log("You didn't enter anything.");
+    return;
   }
+
+  userInput = userInput.toLowerCase();
+
+  // Validate input
+  if (!choicesMap[userInput]) {
+    console.log("Please type r, p, or s");
+    return;
+  }
+
+  // Human choice
+  const humanChoice = choicesMap[userInput];
+  console.log(`You chose ${humanChoice}`);
+
+  // Computer choice
+  const computer = getComputerChoice();
+  console.log(
+    `Computer chose ${computer.choice} and the value is ${computer.value}`,
+  );
 });
