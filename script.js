@@ -47,6 +47,6 @@ humanChooseButton.addEventListener("click", function () {
   // Computer choice
   const computer = getComputerChoice();
   console.log(
-    `Computer chose ${computer.choice} and the value is ${computer.value}`,
+    `Computer choose ${computer.choice} and the value is ${computer.value}`,
   );
 });
