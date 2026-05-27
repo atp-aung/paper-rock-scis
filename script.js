@@ -4,15 +4,15 @@ let computerScore = 0;
 function getComputerChoice() {
   const randomNumber = Math.random();
   if (randomNumber < 1 / 3) {
-    console.log(`rock`);
+    console.log(`computer: rock`);
     return `rock`;
     // return `comp choose rock`;
   } else if (randomNumber < 2 / 3) {
-    console.log(`paper`);
+    console.log(`computer: paper`);
     return `paper`;
     //return `comp choose paper`;
   } else {
-    console.log(`scissors`);
+    console.log(`computer: scissors`);
     return `scissors`;
     //return `comp choose scissors`;
   }
@@ -26,14 +26,17 @@ function getHumanChoice() {
 
   if (userInput === "" || userInput === null) {
     console.log(`type something`);
-  } else if (userInput.toLowerCase === "rock") {
-    console.log(`you typed rock`);
+  } else if (userInput.toLowerCase() === "rock") {
+    console.log(`human: rock`);
+    return `rock`;
     //console.log(`${compChoice}`);
-  } else if (userInput.toLowerCase === "paper") {
-    console.log(`you typed paper`);
+  } else if (userInput.toLowerCase() === "paper") {
+    console.log(`human: paper`);
+    return `paper`;
     //console.log(`${compChoice}`);
-  } else if (userInput.toLowerCase === "scissors") {
-    console.log(`you typed scissors`);
+  } else if (userInput.toLowerCase() === "scissors") {
+    console.log(`human: scissors`);
+    return `scissors`;
     //console.log(`${compChoice}`);
   } else {
     console.log(`wrong type`);
@@ -63,15 +66,12 @@ function getHumanChoice() {
   // );
 }
 
-// getHumanChoice();
-// getComputerChoice();
-
 function playRound(humanChoice, computerChoice) {}
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+//playRound(humanSelection, computerSelection);
 
 // Select the button
 // const humanChooseButton = document.getElementById("humanChooseButton");
