@@ -114,6 +114,8 @@ function playGame() {
       humanScore++;
     } else if (result === "computer") {
       computerScore++;
+    } else {
+      console.log(`return ${result} only`);
     }
 
     console.log(`Score => Human: ${humanScore}, Computer: ${computerScore}`);
