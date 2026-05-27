@@ -39,7 +39,8 @@ function getHumanChoice() {
     return `scissors`;
     //console.log(`${compChoice}`);
   } else {
-    console.log(`wrong type`);
+    console.log(`human: invalid input`);
+    return `invalid human input`;
   }
 
   // if (!userInput) {
@@ -66,12 +67,29 @@ function getHumanChoice() {
   // );
 }
 
-function playRound(humanChoice, computerChoice) {}
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+  computerChoice = computerChoice.toLowerCase();
+
+  if (humanChoice === computerChoice) {
+    console.log(`It's a tie!`);
+  } else if (humanChoice === "invalid human input") {
+    console.log(`invalid human input`);
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+  } else {
+    console.log(`You lose!\n${computerChoice} beats ${humanChoice}`);
+  }
+}
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-//playRound(humanSelection, computerSelection);
+playRound(humanSelection, computerSelection);
 
 // Select the button
 // const humanChooseButton = document.getElementById("humanChooseButton");
