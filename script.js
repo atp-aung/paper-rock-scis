@@ -4,43 +4,44 @@ let computerScore = 0;
 function getComputerChoice() {
   const randomNumber = Math.random();
   if (randomNumber < 1 / 3) {
-    console.log(`computer: rock`);
+    //console.log(`computer: rock`);
     return `rock`;
     // return `comp choose rock`;
   } else if (randomNumber < 2 / 3) {
-    console.log(`computer: paper`);
+    //console.log(`computer: paper`);
     return `paper`;
     //return `comp choose paper`;
   } else {
-    console.log(`computer: scissors`);
+    //console.log(`computer: scissors`);
     return `scissors`;
     //return `comp choose scissors`;
   }
 }
 
 function getHumanChoice() {
-  console.log("testing");
+  //console.log("testing");
   let userInput = prompt(`type rock, paper or scissors`);
 
   //let compChoice = getComputerChoice();
 
   if (userInput === "" || userInput === null) {
     console.log(`type something`);
+    return "nothing";
   } else if (userInput.toLowerCase() === "rock") {
-    console.log(`human: rock`);
+    //console.log(`human: rock`);
     return `rock`;
     //console.log(`${compChoice}`);
   } else if (userInput.toLowerCase() === "paper") {
-    console.log(`human: paper`);
+    //console.log(`human: paper`);
     return `paper`;
     //console.log(`${compChoice}`);
   } else if (userInput.toLowerCase() === "scissors") {
-    console.log(`human: scissors`);
+    //console.log(`human: scissors`);
     return `scissors`;
     //console.log(`${compChoice}`);
   } else {
-    console.log(`human: invalid input`);
-    return `invalid human input`;
+    console.log(`invalid input`);
+    return `invalid input`;
   }
 
   // if (!userInput) {
@@ -68,33 +69,68 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-  humanChoice = humanChoice.toLowerCase();
-  computerChoice = computerChoice.toLowerCase();
+  // humanChoice = humanChoice.toLowerCase();
+  // computerChoice = computerChoice.toLowerCase();
 
   if (humanChoice === computerChoice) {
     console.log(`It's a tie!`);
-  } else if (humanChoice === "invalid human input") {
-    console.log(`invalid human input`);
+  } else if (humanChoice === "nothing" || humanChoice === "invalid input") {
+    console.log(`nothing or invalid`);
+    //return "invalid";
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-    humanScore++;
+    return "human";
   } else {
     console.log(`You lose!\n${computerChoice} beats ${humanChoice}`);
-    computerScore++;
+    return "computer";
   }
-  console.log(`human: ${humanScore}`);
-  console.log(`computer: ${computerScore}`);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+// playRound(humanSelection, computerSelection);
 
+function playGame() {
+  // let humanScore = 0;
+  // let computerScore = 0;
+
+  for (let i = 1; i <= 5; i++) {
+    console.log(`--- Round ${i} ---`);
+
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+
+    console.log(`Human chose: ${humanChoice}`);
+    console.log(`Computer chose: ${computerChoice}`);
+
+    const result = playRound(humanChoice, computerChoice);
+
+    if (result === "human") {
+      humanScore++;
+    } else if (result === "computer") {
+      computerScore++;
+    }
+
+    console.log(`Score => Human: ${humanScore}, Computer: ${computerScore}`);
+  }
+
+  console.log(`--- Final Result ---`);
+
+  if (humanScore > computerScore) {
+    console.log("You are the overall winner!");
+  } else if (computerScore > humanScore) {
+    console.log("Computer is the overall winner!");
+  } else {
+    console.log("The game is a tie!");
+  }
+}
+
+playGame();
 // Select the button
 // const humanChooseButton = document.getElementById("humanChooseButton");
 
