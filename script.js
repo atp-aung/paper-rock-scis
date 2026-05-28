@@ -12,22 +12,39 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  //let userInput = prompt(`type rock, paper or scissors`);
+// function getHumanChoice() {
+//   //let userInput = prompt(`type rock, paper or scissors`);
 
-  if (userInput === "" || userInput === null) {
-    console.log(`type something`);
-    return "nothing";
-  } else if (userInput.toLowerCase() === "rock") {
-    return `rock`;
-  } else if (userInput.toLowerCase() === "paper") {
-    return `paper`;
-  } else if (userInput.toLowerCase() === "scissors") {
-    return `scissors`;
-  } else {
-    console.log(`invalid input`);
-    return `invalid input`;
-  }
+//   if (userInput === "" || userInput === null) {
+//     console.log(`type something`);
+//     return "nothing";
+//   } else if (userInput.toLowerCase() === "rock") {
+//     return `rock`;
+//   } else if (userInput.toLowerCase() === "paper") {
+//     return `paper`;
+//   } else if (userInput.toLowerCase() === "scissors") {
+//     return `scissors`;
+//   } else {
+//     console.log(`invalid input`);
+//     return `invalid input`;
+//   }
+// }
+
+function getHumanChoice(ev) {
+  console.log(ev.target.textContent);
+  // if (userInput === "" || userInput === null) {
+  //   console.log(`type something`);
+  //   return "nothing";
+  // } else if (userInput.toLowerCase() === "rock") {
+  //   return `rock`;
+  // } else if (userInput.toLowerCase() === "paper") {
+  //   return `paper`;
+  // } else if (userInput.toLowerCase() === "scissors") {
+  //   return `scissors`;
+  // } else {
+  //   console.log(`invalid input`);
+  //   return `invalid input`;
+  // }
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -50,9 +67,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 const btnRock = document.querySelector("#btnRock");
-btnRock.addEventListener("click", () => {
-  console.log("Button clicked!");
-});
+btnRock.addEventListener("click", getHumanChoice);
 
 btnRock.addEventListener("mouseover", () => {
   btnRock.style.backgroundColor = "black";
@@ -64,15 +79,15 @@ btnRock.addEventListener("mouseout", () => {
   btnRock.style.color = "black";
 });
 
-btnRock.addEventListener("mousedown", () => {
-  btnRock.style.backgroundColor = "yellow";
-  btnRock.style.color = "black";
-});
+// btnRock.addEventListener("mousedown", () => {
+//   btnRock.style.backgroundColor = "yellow";
+//   btnRock.style.color = "black";
+// });
 
-btnRock.addEventListener("mouseup", () => {
-  btnRock.style.backgroundColor = "green";
-  btnRock.style.color = "white";
-});
+// btnRock.addEventListener("mouseup", () => {
+//   btnRock.style.backgroundColor = "green";
+//   btnRock.style.color = "white";
+// });
 
 // function playGame() {
 //   for (let i = 1; i <= 5; i++) {
