@@ -31,20 +31,17 @@ function getComputerChoice() {
 // }
 
 function getHumanChoice(ev) {
-  //console.log(ev.target.textContent);
   const humanChoice = ev.target.textContent;
   if (humanChoice.toLowerCase() === "rock") {
     console.log(humanChoice);
     return `rock`;
+  } else if (humanChoice.toLowerCase() === "paper") {
+    console.log(humanChoice);
+    return `paper`;
+  } else {
+    console.log(humanChoice);
+    return `scissors`;
   }
-  //else if (userInput.toLowerCase() === "paper") {
-  //   return `paper`;
-  // } else if (userInput.toLowerCase() === "scissors") {
-  //   return `scissors`;
-  // } else {
-  //   console.log(`invalid input`);
-  //   return `invalid input`;
-  // }
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -88,6 +85,32 @@ btnRock.addEventListener("mouseout", () => {
 //   btnRock.style.backgroundColor = "green";
 //   btnRock.style.color = "white";
 // });
+
+const btnPaper = document.querySelector("#btnPaper");
+btnPaper.addEventListener("click", getHumanChoice);
+
+btnPaper.addEventListener("mouseover", () => {
+  btnPaper.style.backgroundColor = "black";
+  btnPaper.style.color = "white";
+});
+
+btnPaper.addEventListener("mouseout", () => {
+  btnPaper.style.backgroundColor = "white";
+  btnPaper.style.color = "black";
+});
+
+const btnScissors = document.querySelector("#btnScissors");
+btnScissors.addEventListener("click", getHumanChoice);
+
+btnScissors.addEventListener("mouseover", () => {
+  btnScissors.style.backgroundColor = "black";
+  btnScissors.style.color = "white";
+});
+
+btnScissors.addEventListener("mouseout", () => {
+  btnScissors.style.backgroundColor = "white";
+  btnScissors.style.color = "black";
+});
 
 // function playGame() {
 //   for (let i = 1; i <= 5; i++) {
