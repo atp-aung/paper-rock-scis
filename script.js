@@ -13,7 +13,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  let userInput = prompt(`type rock, paper or scissors`);
+  //let userInput = prompt(`type rock, paper or scissors`);
 
   if (userInput === "" || userInput === null) {
     console.log(`type something`);
@@ -49,38 +49,63 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
-  for (let i = 1; i <= 5; i++) {
-    console.log(`--- Round ${i} ---`);
+const btnRock = document.querySelector("#btnRock");
+btnRock.addEventListener("click", () => {
+  console.log("Button clicked!");
+});
 
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
+btnRock.addEventListener("mouseover", () => {
+  btnRock.style.backgroundColor = "black";
+  btnRock.style.color = "white";
+});
 
-    console.log(`Human chose: ${humanChoice}`);
-    console.log(`Computer chose: ${computerChoice}`);
+btnRock.addEventListener("mouseout", () => {
+  btnRock.style.backgroundColor = "white";
+  btnRock.style.color = "black";
+});
 
-    const result = playRound(humanChoice, computerChoice);
+btnRock.addEventListener("mousedown", () => {
+  btnRock.style.backgroundColor = "yellow";
+  btnRock.style.color = "black";
+});
 
-    if (result === "human") {
-      humanScore++;
-    } else if (result === "computer") {
-      computerScore++;
-    } else {
-      console.log(`return ${result} only`);
-    }
+btnRock.addEventListener("mouseup", () => {
+  btnRock.style.backgroundColor = "green";
+  btnRock.style.color = "white";
+});
 
-    console.log(`Score => Human: ${humanScore}, Computer: ${computerScore}`);
-  }
+// function playGame() {
+//   for (let i = 1; i <= 5; i++) {
+//     console.log(`--- Round ${i} ---`);
 
-  console.log(`--- Final Result ---`);
+//     const humanChoice = getHumanChoice();
+//     const computerChoice = getComputerChoice();
 
-  if (humanScore > computerScore) {
-    console.log("You are the overall winner!");
-  } else if (computerScore > humanScore) {
-    console.log("Computer is the overall winner!");
-  } else {
-    console.log("The game is a tie!");
-  }
-}
+//     console.log(`Human chose: ${humanChoice}`);
+//     console.log(`Computer chose: ${computerChoice}`);
 
-playGame();
+//     const result = playRound(humanChoice, computerChoice);
+
+//     if (result === "human") {
+//       humanScore++;
+//     } else if (result === "computer") {
+//       computerScore++;
+//     } else {
+//       console.log(`return ${result} only`);
+//     }
+
+//     console.log(`Score => Human: ${humanScore}, Computer: ${computerScore}`);
+//   }
+
+//   console.log(`--- Final Result ---`);
+
+//   if (humanScore > computerScore) {
+//     console.log("You are the overall winner!");
+//   } else if (computerScore > humanScore) {
+//     console.log("Computer is the overall winner!");
+//   } else {
+//     console.log("The game is a tie!");
+//   }
+// }
+
+// playGame();
