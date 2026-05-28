@@ -31,13 +31,13 @@ function getComputerChoice() {
 // }
 
 function getHumanChoice(ev) {
-  console.log(ev.target.textContent);
-  // if (userInput === "" || userInput === null) {
-  //   console.log(`type something`);
-  //   return "nothing";
-  // } else if (userInput.toLowerCase() === "rock") {
-  //   return `rock`;
-  // } else if (userInput.toLowerCase() === "paper") {
+  //console.log(ev.target.textContent);
+  const humanChoice = ev.target.textContent;
+  if (humanChoice.toLowerCase() === "rock") {
+    console.log(humanChoice);
+    return `rock`;
+  }
+  //else if (userInput.toLowerCase() === "paper") {
   //   return `paper`;
   // } else if (userInput.toLowerCase() === "scissors") {
   //   return `scissors`;
